@@ -94,6 +94,11 @@ uis.directive('uiSelect',
             $select.removeSelected = removeSelected !== undefined ? removeSelected : uiSelectConfig.removeSelected;
         });
 
+        attrs.$observe('initSearchValue', function() {
+            var initSearchValue = attrs.initSearchValue;
+            $select.initSearchValue = initSearchValue !== undefined ? initSearchValue : '';
+        });
+
         attrs.$observe('disabled', function() {
           // No need to use $eval() (thanks to ng-disabled) since we already get a boolean instead of a string
           $select.disabled = attrs.disabled !== undefined ? attrs.disabled : false;
